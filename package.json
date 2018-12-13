@@ -1,0 +1,31 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "example",
+  "license": "MIT",
+  "scripts": {
+    "start": "selenium-standalone start",
+    "install": "selenium-standalone install",
+    "test": "wdio wdio.conf.js",
+    "allureReport": "allure generate allure-report && allure open"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/webdriverio": "^4.10.2",
+    "allure-commandline": "^2.7.0",
+    "chai": "^4.2.0",
+    "npm": "^6.4.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.1",
+    "wdio-allure-reporter": "^0.8.1",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.4",
+    "webdriverio": "^4.14.0"
+  }
+}

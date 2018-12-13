@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": false
+  },
+  "types": ["node", "mocha", "chai"],
+  "include": ["pages/**/*", "specs/**/*"],
+  "exclude": ["node_modules"]
+}
