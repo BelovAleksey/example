@@ -1,14 +1,5 @@
 exports.config = {
-  //
-  // ==================
-  // Specify Test Files
-  // ==================
-  // Define which test specs should run. The pattern is relative to the directory
-  // from which `wdio` was called. Notice that, if you are calling `wdio` from an
-  // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
-  // directory is where your package.json resides, so `wdio` will be called from there.
-  //
-  specs: ['./specs/**/**'],
+  specs: ['./specs/checkInitialState.spec.ts'],
   maxInstances: 1,
   host: 'localhost',
   services: ['selenium-standalone'],
@@ -20,15 +11,7 @@ exports.config = {
       },
     },
   ],
-  //
-  // ===================
-  // Test Configurations
-  // ===================
-  // Define all options that are relevant for the WebdriverIO instance here
-  //
-  // By default WebdriverIO commands are executed in a synchronous way using
-  // the wdio-sync package. If you still want to run your tests in an async way
-  // e.g. using promises you can set the sync option to false.
+
   sync: true,
   //
   // Level of logging verbosity: silent | verbose | command | data | result | error
@@ -46,11 +29,7 @@ exports.config = {
   //
   // Saves a screenshot to a given path if a command fails.
   screenshotPath: './allure-results',
-  //
-  // Set a base URL in order to shorten url command calls. If your `url` parameter starts
-  // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
-  // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
-  // gets prepended directly.
+
   baseUrl: '',
   //
   // Default timeout for all waitFor* commands.
