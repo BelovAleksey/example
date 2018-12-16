@@ -32,12 +32,12 @@ describe('Cheking all functionality', function() {
       const changedSlotData: string[] = mainPage.getSlotData();
       expect(initialSlotData).to.not.equal(changedSlotData);
     });
-    it.skip('check that spin button blocked if current balance is zero', function() {
+    it('check that spin button blocked if current balance is zero', function() {
       mainPage.setBalance(0);
       expect(mainPage.isSpinButtonDisabled()).to.be.true;
     });
   });
-  describe.skip('check current balance field', function() {
+  describe('check current balance field', function() {
     it('check that current balance field cannot accept negative values', function() {
       mainPage.setBalance(-1);
       expect(mainPage.getBalance()).to.equal(0);
