@@ -1,67 +1,6 @@
 {
   "gameDescription": "This is a simple slot game with one payline. Press Spin button to play.\nIn order to win, you must get 3, 4 or 5 identical symbols in the middle row.\nYour task is to automate as many test cases as you can think of.",
   "applicationTitle": "QA Automation Engineer Test Task",
-  "startBalance": "1000",
-  "combination": [
-    [
-      "111",
-      "60"
-    ],
-    [
-      "1111",
-      "80"
-    ],
-    [
-      "11111",
-      "100"
-    ],
-    [
-      "222",
-      "120"
-    ],
-    [
-      "2222",
-      "160"
-    ],
-    [
-      "22222",
-      "200"
-    ],
-    [
-      "333",
-      "180"
-    ],
-    [
-      "3333",
-      "240"
-    ],
-    [
-      "33333",
-      "300"
-    ],
-    [
-      "444",
-      "240"
-    ],
-    [
-      "4444",
-      "320"
-    ],
-    [
-      "44444",
-      "400"
-    ],
-    [
-      "555",
-      "300"
-    ],
-    [
-      "5555",
-      "400"
-    ],
-    [
-      "55555",
-      "500"
-    ]
-  ]
+  "startBalance": 1000,
+  "payTable": []
 }

@@ -7,7 +7,7 @@
     "start": "selenium-standalone start",
     "install": "selenium-standalone install",
     "test": "wdio wdio.conf.js",
-    "allureReport": "allure generate allure-report && allure open"
+    "allureReport": "allure generate --clean ./allure-results && allure open"
   },
   "repository": {
     "type": "git",

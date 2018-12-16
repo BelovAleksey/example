@@ -1,5 +1,8 @@
 exports.config = {
-  specs: ['./specs/checkInitialState.spec.ts'],
+  specs: [
+    //'./specs/checkInitialState.spec.ts',
+    './specs/checkFunctionality.spec.ts',
+  ],
   maxInstances: 1,
   host: 'localhost',
   services: ['selenium-standalone'],
@@ -28,7 +31,7 @@ exports.config = {
   bail: 0,
   //
   // Saves a screenshot to a given path if a command fails.
-  screenshotPath: './allure-results',
+  screenshotPath: 'allure-results',
 
   baseUrl: '',
   //
@@ -55,5 +58,17 @@ exports.config = {
     ui: 'bdd',
     compilers: ['ts:ts-node/register'],
     timeout: 75000,
+  },
+  beforeSession: function() {
+    const fs = require('fs');
+    const allureResultsDir = 'allure-results';
+    fs.readdir(allureResultsDir, (err, files) => {
+      if (err) throw err;
+      for (const file of files) {
+        fs.unlink(process.env.PWD.concat('/', allureResultsDir, '/', file), err => {
+          if (err) throw err;
+        });
+      }
+    });
   },
 };

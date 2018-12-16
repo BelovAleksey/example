@@ -7,20 +7,48 @@ class MainPage {
   private applicationHeader = () => $('//div[@id="game"]//h3');
   private gameDescription = () => $('//div[@id="paytable"]//span');
   private balance = () => $('//input[@id="balance-value"]');
+  private winBox = () => $('//div[@id="winbox"]');
 
   open() {
     browser.url('file:///Users/macbook/Documents/Projects/example/Test_Task.html');
     browser.pause(2000);
   }
+  setTestData(data: string) {
+    //we need to add blank if length < 5 to exclude random combination changing
+    return this.testData().setValue(data.length < 5 ? data + '0' : data);
+  }
+  isWinBoxVisible() {
+    return this.winBox().isVisible();
+  }
+  getWinBoxMessage() {
+    return this.winBox().getText();
+  }
+  getCoinAmountWon() {
+    return Number(this.getWinBoxMessage().split(' ')[1]);
+  }
   isBalanceVisible() {
     return this.balance().isVisible();
   }
   getBalance() {
-    return this.balance().getValue();
+    return Number(this.balance().getValue());
+  }
+  setBalance(count: number) {
+    return this.balance().setValue(count);
   }
   clickSpinButton() {
     this.spinButton().click();
+    //add pause for rendering page
+    browser.pause(200);
   }
+  isSpinButtonDisabled() {
+    return this.spinButton()
+      .getHTML()
+      .includes('disabled');
+  }
+  waitSpinButtonEnabled(timeout: number) {
+    this.spinButton().waitForEnabled(timeout);
+  }
+
   getSpinButtonText() {
     return this.spinButton().getText();
   }
@@ -61,7 +89,7 @@ class MainPage {
   }
   getMiddleRow() {
     const data: string[] = this.getSlotData();
-    let middleRow = '';
+    let middleRow: string = '';
     for (let i = 1; i < data.length; i += 3) {
       middleRow += data[i];
     }

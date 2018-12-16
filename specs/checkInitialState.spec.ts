@@ -1,7 +1,7 @@
-const fs = require('fs');
-let data = JSON.parse(fs.readFileSync('./data.json'));
-import mainPage from '../pages/mainPage';
+import * as fs from 'fs';
 import { expect } from 'chai';
+import mainPage from '../pages/mainPage';
+let data = JSON.parse(fs.readFileSync('./data.json').toString());
 
 describe('Check initial state and data', function() {
   before('open test task', function() {
@@ -11,9 +11,9 @@ describe('Check initial state and data', function() {
   it('Expect that combinations exist and visible', function() {
     let allCombination: string[][] = [];
     allCombination = mainPage.getPayTableData();
-    data.combination = allCombination;
+    data.payTable = allCombination;
     fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
-    expect(data.combination).not.to.be.null;
+    expect(data.payTable).not.to.be.null;
     expect(mainPage.isPayTableDataVisible()).to.be.true;
   });
 
@@ -31,6 +31,5 @@ describe('Check initial state and data', function() {
   });
   it('Expect that there is no slot data', function() {
     expect(mainPage.getSlotData()).to.be.null;
-    expect(mainPage.getBalance()).to.equal(data.startBalance);
   });
 });
