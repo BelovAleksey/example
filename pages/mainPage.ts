@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+let data = JSON.parse(fs.readFileSync('./data.json').toString());
 class MainPage {
   private spinButton = () => $('//input[@id="spinButton"]');
   private testData = () => $('//input[@id="testdata"]');
@@ -10,7 +12,7 @@ class MainPage {
   private winBox = () => $('//div[@id="winbox"]');
 
   open() {
-    browser.url('file:///Users/macbook/Documents/Projects/example/Test_Task.html');
+    browser.url(data.url);
     browser.pause(2000);
   }
   setTestData(data: string) {

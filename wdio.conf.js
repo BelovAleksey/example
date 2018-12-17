@@ -1,8 +1,5 @@
 exports.config = {
-  specs: [
-    //'./specs/checkInitialState.spec.ts',
-    './specs/checkFunctionality.spec.ts',
-  ],
+  specs: ['./specs/checkInitialState.spec.ts', './specs/checkFunctionality.spec.ts'],
   maxInstances: 1,
   host: 'localhost',
   services: ['selenium-standalone'],
