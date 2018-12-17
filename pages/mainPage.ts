@@ -17,6 +17,9 @@ class MainPage {
     //we need to add blank if length < 5 to exclude random combination changing
     return this.testData().setValue(data.length < 5 ? data + '0' : data);
   }
+  getTestData() {
+    return this.testData().getValue();
+  }
   isWinBoxVisible() {
     return this.winBox().isVisible();
   }
@@ -32,7 +35,7 @@ class MainPage {
   getBalance() {
     return Number(this.balance().getValue());
   }
-  setBalance(count: number) {
+  setBalance(count: number | string) {
     return this.balance().setValue(count);
   }
   clickSpinButton() {

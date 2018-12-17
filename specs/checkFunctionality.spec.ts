@@ -42,10 +42,36 @@ describe('Cheking all functionality', function() {
       mainPage.setBalance(-1);
       expect(mainPage.getBalance()).to.equal(0);
     });
+    // I don't have enough information about this app so next steps just my postulate
+    it('check that current balance field cannot accept fractional numbers', function() {
+      mainPage.setBalance(1.5);
+      expect(mainPage.getBalance()).to.equal(1);
+    });
+    it('check that current balance field cannot accept letters', function() {
+      mainPage.setBalance('ab');
+      expect(mainPage.getBalance()).to.equal(0);
+    });
+    it('check that current balance field cannot accept mathematical operation', function() {
+      mainPage.setBalance('+');
+      expect(mainPage.getBalance()).to.equal(0);
+    });
+  });
+  describe('check test data field', function() {
+    //I suppose that in the game participate just digit
+    it('check that test field cannot accept letters and special symbols', function() {
+      mainPage.setTestData('a+ы@中');
+      expect(mainPage.getTestData()).to.equal('');
+    });
+    //add this test because if you add some symbols to win combo (e.x.  111110'),
+    //you'll see five '1' at middle row but you will not win
+    it('check that test field cannot accept string longer than 5 letters', function() {
+      mainPage.setTestData('111110');
+      expect(mainPage.getTestData()).to.equal('11111');
+    });
   });
   describe('check paytable combinations', function() {
     beforeEach('set balance to 1', function() {
-      //add this action to improve data analyze
+      //add this action to improve test results analyze
       mainPage.setBalance(1);
     });
     data.payTable.forEach(line => {

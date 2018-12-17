@@ -7,6 +7,11 @@ describe('Check initial state and data', function() {
   before('open test task', function() {
     mainPage.open();
   });
+  afterEach('save screenshot', function() {
+    if (this.currentTest.state !== 'passed') {
+      browser.saveScreenshot();
+    }
+  });
 
   it('Expect that combinations exist and visible', function() {
     let allCombination: string[][] = [];
