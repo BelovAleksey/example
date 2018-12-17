@@ -14,10 +14,8 @@ To launching tests:
 
 ## Project structure
 
-- allure-results - after test all results copy to this directory and you can generate allure-report
-- specs - store for all tests
-- pages - describing Page Objects
-
-### Config
-
-data.json and wdio.conf.js contain all configs
+- allure-results/ - after test all results copy to this directory and you can generate allure-report
+- specs/ - store for all tests
+- pages/ - describing Page Objects
+- wdio.conf.js and data.json - configuration and test data
+- tsconfig.json - root of a TypeScript project
