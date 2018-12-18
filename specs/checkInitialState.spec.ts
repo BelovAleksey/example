@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import mainPage from '../pages/mainPage';
 let data = JSON.parse(fs.readFileSync('./data.json').toString());
 
+//Sometimes it's not necessary, because you can check it using unit tests, but I add just as possibilities
 describe('Check initial state and data', function() {
   before('open test task', function() {
     mainPage.open();
@@ -13,6 +14,7 @@ describe('Check initial state and data', function() {
     }
   });
 
+  // Using paytable as source of truth our app
   it('Expect that combinations exist and visible', function() {
     let allCombination: string[][] = [];
     allCombination = mainPage.getPayTableData();

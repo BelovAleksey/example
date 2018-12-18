@@ -8,7 +8,8 @@ describe('Cheking all functionality', function() {
     mainPage.open();
   });
   beforeEach('wait spin button enabled', function() {
-    mainPage.waitSpinButtonEnabled(6000);
+    //add waiting with margin
+    mainPage.waitSpinButtonEnabled(7000);
   });
   afterEach('save screenshot', function() {
     if (this.currentTest.state !== 'passed') {
@@ -21,7 +22,7 @@ describe('Cheking all functionality', function() {
       const initialBalance: number = mainPage.getBalance();
       mainPage.clickSpinButton();
       const changedBalance: number = mainPage.getBalance();
-      const win = mainPage.isWinBoxVisible();
+      const win: boolean = mainPage.isWinBoxVisible();
       const coinCount: number = win ? mainPage.getCoinAmountWon() : 0;
       expect(initialBalance - 1 + coinCount).to.equal(changedBalance);
     });
@@ -73,6 +74,16 @@ describe('Cheking all functionality', function() {
     beforeEach('set balance to 1', function() {
       //add this action to improve test results analyze
       mainPage.setBalance(1);
+    });
+    it('check combination with 2 in row', function() {
+      const balance: number = mainPage.getBalance();
+      const combination: string = '11000';
+      mainPage.setTestData(combination);
+      mainPage.clickSpinButton();
+      const changedBalance: number = mainPage.getBalance();
+      expect(mainPage.getMiddleRow()).to.include(combination);
+      expect(changedBalance).to.equal(balance - 1);
+      expect(mainPage.isWinBoxVisible()).to.be.false;
     });
     data.payTable.forEach(line => {
       it(`check combination - ${line[0]}`, function() {
