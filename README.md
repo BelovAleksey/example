@@ -5,7 +5,7 @@ Tests for task) but you can use it like pattern)
 
 To launching tests:
 
-- add you path to file in "url" in `data.json` (ex. "url": "file:///Users/users/Documents/Projects/example/file.html")
+- add you path to file in "url" in `data.json` (ex. "url": "file:///Users/users/Documents/Projects/example/*.html")
 - install all project dependencies with `npm install`
 - run the selenium server or write `npm run start` (ensure you have at least Java version 8)
 - run all tests using `npm run test`
